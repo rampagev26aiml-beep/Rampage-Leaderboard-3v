@@ -29,7 +29,6 @@ export default function Leaderboard({ apiRoute, domainTitle }: LeaderboardProps)
   const [loading, setLoading] = useState(true)
   const [lastUpdated, setLastUpdated] = useState<Date | null>(null)
   const [error, setError] = useState<string | null>(null)
-  const csvUrl = apiRoute; // Declare csvUrl variable
 
   const parseCSV = useCallback((csvText: string): TeamData[] => {
     const lines = csvText.trim().split("\n")
@@ -66,9 +65,25 @@ export default function Leaderboard({ apiRoute, domainTitle }: LeaderboardProps)
 
         const parseNumber = (val: string | undefined): number => {
           if (!val || val === "" || val === "-") return 0
-          const num = parseFloat(val)
-          return isNaN(num) ? 0 : num
+          const num = Number.parseFloat(val)
+          return Number.isNaN(num) ? 0 : num
         }
+
+        // Calculate total from all checkpoint values if total column is missing or 0
+        const cp1Val = parseNumber(values[1])
+        const cp2Val = parseNumber(values[2])
+        const cp3Val = parseNumber(values[3])
+        const cp4Val = parseNumber(values[4])
+        const cp5Val = parseNumber(values[5])
+        const cp6Val = parseNumber(values[6])
+        const cp7Val = parseNumber(values[7])
+        const cp8Val = parseNumber(values[8])
+        const juryVal = parseNumber(values[9])
+        const totalFromCSV = parseNumber(values[10])
+        
+        // Use CSV total if available, otherwise calculate from checkpoints
+        const calculatedTotal = cp1Val + cp2Val + cp3Val + cp4Val + cp5Val + cp6Val + cp7Val + cp8Val + juryVal
+        const total = totalFromCSV > 0 ? totalFromCSV : calculatedTotal
 
         return {
           rank: 0,
@@ -82,11 +97,11 @@ export default function Leaderboard({ apiRoute, domainTitle }: LeaderboardProps)
           cp7: parseValue(values[7]),
           cp8: parseValue(values[8]),
           jury: parseValue(values[9]),
-          total: parseNumber(values[10]),
+          total: total,
         }
       })
 
-    // Sort by total score descending
+    // Sort by total score descending (highest score first)
     parsedTeams.sort((a, b) => b.total - a.total)
 
     // Assign ranks after sorting
