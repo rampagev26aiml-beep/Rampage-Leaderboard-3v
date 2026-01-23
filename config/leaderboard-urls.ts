@@ -2,7 +2,7 @@
 // Format: File > Share > Publish to web > CSV
 
 export const LEADERBOARD_URLS = {
-  webdev: "https://docs.google.com/spreadsheets/d/e/2PACX-1vQQsmyA3f0DLMdsEG63ev3GzTAlxepQhsaN07v4PFAwcdQHB0iotWCzspF5klrCva7YrOWgoCJlZVJf/pub?gid=75380706&single=true&output=csv",
+  webdev: "https://docs.google.com/spreadsheets/d/e/2PACX-1vRqvqZvJjJaJ9KUa_Ro2OHFPBOSBRhxQ3om4kXixig_bioDmBCRykFrXbyJZsGSJERINdxS1WIZ2VnF/pub?gid=0&single=true&output=csv",
 
   aiml: "https://docs.google.com/spreadsheets/d/e/2PACX-1vRWco9OTuM6E2fwtptul0-vzfJkqgsZLTB1GKiWQBC2pqd_N9WHj4Ne_u17y3xBv-cmy44ZW6GtWN3s/pub?gid=252009932&single=true&output=csv",
 
