@@ -256,9 +256,9 @@ export default function Leaderboard({ apiRoute, domainTitle }: LeaderboardProps)
                   <th className="text-center py-4 px-2 text-xs uppercase tracking-wider text-muted-foreground font-medium">
                     CP8
                   </th>
-                  <th className="text-center py-4 px-2 text-xs uppercase tracking-wider text-muted-foreground font-medium">
+                  {/* <th className="text-center py-4 px-2 text-xs uppercase tracking-wider text-muted-foreground font-medium">
                     Jury
-                  </th>
+                  </th> */}
                   <th className="text-center py-4 px-3 text-xs uppercase tracking-wider text-primary font-semibold">
                     Total
                   </th>
