@@ -15,7 +15,6 @@ interface TeamData {
   cp6: string
   cp7: string
   cp8: string
-  jury: string
   total: number
 }
 
