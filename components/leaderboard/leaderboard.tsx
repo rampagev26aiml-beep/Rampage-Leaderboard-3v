@@ -77,11 +77,11 @@ export default function Leaderboard({ apiRoute, domainTitle }: LeaderboardProps)
         const cp6Val = parseNumber(values[6])
         const cp7Val = parseNumber(values[7])
         const cp8Val = parseNumber(values[8])
-        const juryVal = parseNumber(values[9])
-        const totalFromCSV = parseNumber(values[10])
+        // const juryVal = parseNumber(values[9])
+        const totalFromCSV = parseNumber(values[9])
         
         // Use CSV total if available, otherwise calculate from checkpoints
-        const calculatedTotal = cp1Val + cp2Val + cp3Val + cp4Val + cp5Val + cp6Val + cp7Val + cp8Val + juryVal
+        const calculatedTotal = cp1Val + cp2Val + cp3Val + cp4Val + cp5Val + cp6Val + cp7Val + cp8Val
         const total = totalFromCSV > 0 ? totalFromCSV : calculatedTotal
 
         return {
@@ -95,7 +95,7 @@ export default function Leaderboard({ apiRoute, domainTitle }: LeaderboardProps)
           cp6: parseValue(values[6]),
           cp7: parseValue(values[7]),
           cp8: parseValue(values[8]),
-          jury: parseValue(values[9]),
+          // jury: parseValue(values[9]),
           total: total,
         }
       })
